@@ -1,0 +1,14 @@
+import capos.*
+describe "castillo"{
+    
+    test "Rolando recolecta espada y collar y los deja en el castillo"{
+        rolando.recolectarArtefacto(espada) // ESTO SE LLAMA Act
+        rolando.recolectarArtefacto(collar)   // ESTO SE LLAMA Act
+        assert.equals(2, rolando.tamañoDeLaMochila())
+        assert.equals([espada, collar],  rolando.posesiones())
+        rolando.irAlCastillo()  // ESTO SE LLAMA ARRANGE 
+        assert.equals(0, rolando.tamañoDeLaMochila())
+        assert.equals([espada, collar],  rolando.posesiones())
+
+    }
+}
