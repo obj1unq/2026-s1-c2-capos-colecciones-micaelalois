@@ -1,14 +1,40 @@
 object rolando {
-    var cantidadDeArtefactosLimite = 2
+    const cantidadDeArtefactosLimite = 2
     //var cantidadDeArtefactosDeLaMochila = artefactosDeLaMochila.size()
-    var artefactosDeLaMochila = []
-    var artefactosDelCastillo= []
-    var historia = []
+    const artefactosDeLaMochila = []
+    const historia = []
     var poderDePelea = 0
-    var posesiones = []
-    var artefactosUtilizados = []
+    const posesiones = []
+    const artefactosUtilizados = []
+    const morada = castillo
 
-//MODELAR CASTILLO COMO OBJETO 
+method morada(){
+    return morada
+}
+
+method morada(_morada){
+    morada= _morada
+}
+method esPoderoso(nacion){
+    return self.puedeVencerA(nacion)
+
+}
+
+
+method puedeVencerA(enemigo){
+    return (self.poderDePelea() > enemigo.poderDePelea())
+}
+// VER COMO ENTRAR EN REGISTROS 
+method puedeConquistar(morada){
+    return self.puedeVencerAlDueñoDeLaMorada(morada)
+}
+
+//volver a hacer
+method puedeVencerAlDueñoDeLaMorada(morada){
+    return self.puedeVencerA(enemigo.morada()) // preguntar 
+}
+
+
 method artefactosUtilizados(){
     return artefactosUtilizados
 }
@@ -43,13 +69,12 @@ method tamañoDeLaMochila(){
         return posesiones.contains(artefacto) // PARA SABER SI ESTÁ EN LA LISTA
     }
 
-    method irAlCastillo(){
-        artefactosDelCastillo = artefactosDelCastillo + artefactosDeLaMochila
+    
+    
+    method irALugar(morada){
+        artefactosDeLaMorada = artefactosDeLaMorada + artefactosDeLaMochila
         artefactosDeLaMochila.clear()
-    }
-// PENSAR ESTO, DEBO DEFINIR CASTILLO COMO OBJETO
-    method llegarA(lugar){
-        lugar. 
+        
     }
 
     
@@ -70,6 +95,10 @@ method tamañoDeLaMochila(){
     return artefactosUtilizados.contains(artefacto)
    }
     
+   method  cantidadDeVecesQueElPersonajeUtilizoElArtefacto(personaje,artefacto){
+    return personaje.artefactoEsPosesion(artefacto)artefactosUtilizados.occurrencesOf(artefacto) // cantidad de veces que aparece elemento en lista
+
+}
 
     method recolectarArtefacto(artefacto){
         if (self.mochilaTieneCapacidad()){
@@ -79,34 +108,13 @@ method tamañoDeLaMochila(){
         }
     }
 
-}
 
-object espada{
-    var poder = poderDeLaEspadaEnPersonaje(personaje)
-    
-
-method poderDeLaEspadaEnPersonaje(personaje){
-    if (personaje.elPersonajeUtilizoElArtefacto(espada)
-        poder = personaje.poder()/ 2
-    } else { poder = personaje.poderDePelea()
-    }
-
-
-
-method poder(){
-    return poder
-}
-}
-
-object collar{
 
 }
 
-object libro{
 
-}
 
-object armadura{
-    
-}
+
+
+
 

@@ -1,4 +1,9 @@
-import capos.*
+import rolando.*
+import naciones.*
+import moradas.*
+import enemigos.*
+import artefactos.*
+ 
 describe "castillo"{
     
     test "Rolando recolecta espada y collar y los deja en el castillo"{
@@ -6,9 +11,10 @@ describe "castillo"{
         rolando.recolectarArtefacto(collar)   // ESTO SE LLAMA Act
         assert.equals(2, rolando.tamañoDeLaMochila())
         assert.equals([espada, collar],  rolando.posesiones())
-        rolando.irAlCastillo()  // ESTO SE LLAMA ARRANGE 
+        rolando.irAlCastillo()  // ESTO SE LLAMA Act
         assert.equals(0, rolando.tamañoDeLaMochila())
         assert.equals([espada, collar],  rolando.posesiones())
-
     }
+
+
 }
