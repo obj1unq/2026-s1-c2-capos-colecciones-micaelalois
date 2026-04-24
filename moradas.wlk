@@ -1,21 +1,36 @@
 object castillo{ //TERMINAR DE MODELAR 
-   const  artefactosDelCastillo= [] 
+   var artefactosDeLaMorada= [] 
 
-    //PENSAR ARTEFACTO MAS PODEROSO DE LA MORADA
+method recibirArtefactos(lista){
+    artefactosDeLaMorada.addAll(lista)
+}
+
+method artefactosDeLaMorada(){
+    return artefactosDeLaMorada
+}
+
 
 method artefactoMasPoderoso(personaje){
-    return artefactos.max({a=> <.poder(personaje)})
-}
+return artefactosDeLaMorada.max({a => a.poder(personaje)})}
 }
 
 object fortalezaDeAcero{
 
+method recibirArtefactos(lista){
+    artefactosDeLaMorada.addAll(lista)
+}
 }
 
 object palacioDeMarmol{
 
+method recibirArtefactos(lista){
+    artefactosDeLaMorada.addAll(lista)
+}
 }
 
 object torreDeMarfil{
-    
+
+method recibirArtefactos(lista){
+    artefactosDeLaMorada.addAll(lista)
+}
 }

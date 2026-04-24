@@ -1,63 +1,70 @@
 object espada{
-    var poder = poderDeLaEspadaEnPersonaje(personaje)
-    
 
-method poderDeLaEspadaEnPersonaje(personaje){
-    if (personaje.elPersonajeUtilizoElArtefacto(espada)){
-        poder = personaje.poder()/ 2
-    } else { poder = personaje.poderDePelea()
+
+method poder(personaje){
+    if (personaje.elPersonajeUtilizoElArtefacto(self)){
+        return (personaje.poder()/ 2)
+    } else { 
+        return  personaje.poder()
 }
 }
 
-method poder(){
-    return poder
+
+method usar(){
+ rolando.utilizarArtefacto(self)
 }
 
 }
-
 
 object collar{
-     var poder = poderDelCollarEnPersonaje(personaje)
 
 
-method poderDelCollarEnPersonaje(personaje){
-    if(personaje.poderDePelea()>6){
+method poder(personaje){
+    if(personaje.poder()>6){
         return (3+ personaje.cantidadDeVecesQueElPersonajeUtilizoElArtefacto(collar))
-    } else { return 3
+    } else { 
+         return 3
+    } 
+}
+method usar(){
 
-}
-}
-method poder(){
-    return poder
 }
 
 }
 
 
 object libro{
-    var poder = poderDelLibroEnPersonaje(personaje)
     var hechizos= [bendicion, invisibilidad, invocacion]
 
 method usar(){
-    if(not hechizos.isempty())   //isempty LA LISTA NO ES
-    hechizos = hechizos.remove(hechizos.first()) // LISTA SIN EL PRIMER ELEMENTO (1)
+    if(not hechizos.isempty())   //isempty LA LISTA NO ES vacía
+    hechizos.remove(hechizos.first()) // LISTA SIN EL PRIMER ELEMENTO (1)
+     rolando.utilizarArtefacto(self)
 
 }
 
+method hechizos(_hechizo){
+    hechizos.add(_hechizo)
+}
 method hechizos(){
     return hechizos
 }
-method poder(){
-    return poder
+method poder(personaje){
+    if (hechizos.isEmpty()){
+        return 0
+    } else {
+        return hechizos.first().poder(personaje)
+    }
+}
 }
 
-method poderDelLibroEnPersonaje(personaje){
-    hechizos.first() 
-    }
+//HECHIZOS//
+
 
 object bendicion{
 
-method poder(){
+
+method poder(personaje){
     return 4
 }
 
@@ -65,27 +72,31 @@ method poder(){
 
 object invisibilidad{
 
-method poderDePelea(personaje){
-    return personaje.poderDePelea()
+method poder(personaje){
+    return (personaje.poder())
 }
 
 }
 
 object invocacion{
 
-method poderDePelea(){
+method poder(personaje){
     return  personaje.morada().artefactoMasPoderoso(personaje).poder()
 }
-}
 
+}
 
 object armadura{
-var poder= 6
     
-method poder(){
-        return poder
-    
+method poder(personaje){
+        return 6 
 }
 
+method usar(){
+ rolando.utilizarArtefacto(self)
 }
+
+
+}
+
 
