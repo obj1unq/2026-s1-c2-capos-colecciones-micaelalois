@@ -1,8 +1,5 @@
-import rolando.*
-import naciones.*
-import moradas.*
-import enemigos.*
-import artefactos.*
+import capos.*
+
  
 describe "castillo"{
     
@@ -11,10 +8,21 @@ describe "castillo"{
         rolando.recolectarArtefacto(collar)   // ESTO SE LLAMA Act
         assert.equals(2, rolando.tamañoDeLaMochila())
         assert.equals([espada, collar],  rolando.posesiones())
-        rolando.irAlCastillo()  // ESTO SE LLAMA Act
+        rolando.irALugar(castillo)  // ESTO SE LLAMA Act
         assert.equals(0, rolando.tamañoDeLaMochila())
         assert.equals([espada, collar],  rolando.posesiones())
     }
+
+    test "En el castillo están el collar y la espada, y Rolando tiene la armadura.
+     Entonces las posesiones de Rolando son 3: el collar, la espada y la armadura"{
+         castillo.recibirArtefactos([collar, espada])
+         rolando.recolectarArtefacto(armadura)
+         assert.equals([espada, collar, armadura],  rolando.posesiones())
+
+    
+     }
+
+
 
 
 }
