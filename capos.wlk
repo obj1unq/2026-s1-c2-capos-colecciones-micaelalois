@@ -4,20 +4,18 @@ object rolando {
     const historia = []
     const artefactosUtilizados = []
     var morada = castillo //NO ES CONST YA QUE PUEDE CAMBIAR DE MORADA 
-    var   poder = 5
+    var   poderBase = 5
 
 method luchar(){
     artefactosDeLaMochila.forEach({a => a.usar()})
-    poder = poder +1
+     poderBase = poderBase + 1
 }
-method poder(){
-    return poder
-}
+
 method morada(){
     return morada
 }
 
-method morada(_morada){
+method cambiarMorada(_morada){
     morada= _morada
 }
 method esPoderoso(nacion){
@@ -30,10 +28,13 @@ method esPoderoso(nacion){
 method puedeVencerA(enemigo){
     return (self.poder > enemigo.poder())
 }
+
+
 // VER COMO ENTRAR EN REGISTROS 
-method puedeConquistar(morada){     
-    return self.puedeVencerAlDueñoDeLaMorada(morada)
-}
+
+// method puedeConquistar(morada){     
+//     return self.puedeVencerAlDueñoDeLaMorada(morada)
+// }
 
 //volver a hacer
 // method puedeVencerAlDueñoDeLaMorada(morada){

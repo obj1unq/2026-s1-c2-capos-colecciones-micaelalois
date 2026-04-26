@@ -19,7 +19,6 @@ describe "castillo"{
          rolando.recolectarArtefacto(armadura)
          assert.equals([espada, collar, armadura],  rolando.posesiones())
 
-    
      }
 
 
