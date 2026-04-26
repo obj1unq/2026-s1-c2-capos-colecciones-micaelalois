@@ -26,7 +26,7 @@ method esPoderoso(nacion){
 
 
 method puedeVencerA(enemigo){
-    return (self.poder() > enemigo.poder())
+    return (self.poder > enemigo.poder())
 }
 
 
@@ -121,7 +121,7 @@ method tamañoDeLaMochila(){
 //moradas//
 
 object castillo{ //TERMINAR DE MODELAR 
-   var artefactosDeLaMorada= [] 
+   const artefactosDeLaMorada= [] 
 
 method recibirArtefactos(lista){
     artefactosDeLaMorada.addAll(lista)
