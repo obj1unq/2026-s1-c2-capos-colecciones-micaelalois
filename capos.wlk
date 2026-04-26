@@ -26,7 +26,7 @@ method esPoderoso(nacion){
 
 
 method puedeVencerA(enemigo){
-    return (self.poder > enemigo.poder())
+    return (self.poder() > enemigo.poder())
 }
 
 
@@ -60,10 +60,9 @@ method tamañoDeLaMochila(){
     return posesiones.contains(artefacto)
    }
 
-    method poder(personaje){
-        return (poder + artefactosDeLaMochila.sum({a => a.poder(self)}))
-    }
-
+    method poder(){
+    return poderBase + artefactosDeLaMochila.sum({a => a.poder(self)})
+}
    
 
 
@@ -130,9 +129,6 @@ method recibirArtefactos(lista){
 
 method artefactosDeLaMorada(){
     return artefactosDeLaMorada
-}
-method artefactosDeLaMorada(_artefactos){
-    artefactosDeLaMorada = _artefactos
 }
 
 
