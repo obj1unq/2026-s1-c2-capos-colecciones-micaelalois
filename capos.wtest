@@ -1,9 +1,9 @@
 import capos.*
 
  
-describe "castillo"{
+describe "caposEjercicio1"{
     
-    test "Rolando recolecta espada y collar y los deja en el castillo"{
+    test "Rolando recolecta espada y collar y los deja en el castillo"{ //Funciona bien
         rolando.recolectarArtefacto(espada) // ESTO SE LLAMA Act
         rolando.recolectarArtefacto(collar)   // ESTO SE LLAMA Act
         assert.equals(2, rolando.tamañoDeLaMochila())
@@ -13,8 +13,8 @@ describe "castillo"{
         assert.equals([espada, collar],  rolando.posesiones())
     }
 
-    test "En el castillo están el collar y la espada, y Rolando tiene la armadura.
-     Entonces las posesiones de Rolando son 3: el collar, la espada y la armadura"{
+    test "En el castillo están el collar y la espada, y Rolando tiene la armadura. 
+     Entonces las posesiones de Rolando son 3: el collar, la espada y la armadura"{ //Funciona Mal
          castillo.recibirArtefactos([collar, espada])
          rolando.recolectarArtefacto(armadura)
          assert.equals([espada, collar, armadura],  rolando.posesiones())
@@ -22,6 +22,36 @@ describe "castillo"{
      }
 
 
-
-
 }
+
+describe "caposEjercicio 2.1 y 2.2"{
+    test "libroDeHechizosPrimeraBatalla"{ //Funciona bien
+    rolando.recolectarArtefacto(libro)
+    assert.equals([libro],  rolando.posesiones())
+    assert.equals(9,  rolando.poder())
+    }
+
+    test "libroDeHechizosLuegoPrimeraBatalla"{ //Funciona mal
+    rolando.recolectarArtefacto(libro)
+    assert.equals([libro],  rolando.posesiones())
+    assert.equals(9,  rolando.poder())
+    rolando.luchar()
+    assert.equals(11,  rolando.poder())
+    }
+    test "luegoDeSegundaBatallaElLibroAporta7"{ //no funciona por lista vacía
+    assert.equals([libro],  rolando.posesiones())
+    assert.equals(9,  rolando.poder())
+    libro.usar()
+    assert.equals(11,  rolando.poder())
+    }
+}
+
+describe "Ejercicio 2.3 y 2.4"{
+    test "Ejemplo 2.3"{
+    
+     rolando.cambiarCantidadDeArtefactosLimite(3)
+     assert.equals(3, rolando.cantidadDeArtefactosLimite())
+     }
+}
+
+
