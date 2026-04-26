@@ -30,16 +30,15 @@ method puedeVencerA(enemigo){
 }
 
 
-// VER COMO ENTRAR EN REGISTROS 
 
-// method puedeConquistar(morada){     
-//     return self.puedeVencerAlDueñoDeLaMorada(morada)
-// }
+method puedeConquistar(morada){     
+    return self.puedeVencerAlDueñoDeLaMorada(morada)
+}
 
-//volver a hacer
-// method puedeVencerAlDueñoDeLaMorada(morada){
-//     return self.puedeVencerA(enemigo.morada()) // preguntar no sé hacer esta línea
-// }
+volver a hacer
+method puedeVencerAlDueñoDeLaMorada(morada){
+    return self.puedeVencerA(enemigo.morada()) // preguntar no sé hacer esta línea
+}
 
 
 method artefactosUtilizados(){
