@@ -46,12 +46,41 @@ describe "caposEjercicio 2.1 y 2.2"{
     }
 }
 
-describe "Ejercicio 2.3 y 2.4"{
-    test "Ejemplo 2.3"{
+describe "Ejercicio 2.3, 2.4 y 2.5"{
+
+    /*Suponiendo que Rolando tiene 5 de base y capacidad de 3 artefactos.
+     Entre sus artefactos se encuentran la espada (que le aporta 5), la armadura (aporta 6) y el collar 
+     (aporta 3). Su poder de batalla es 19, por lo tanto, puede vencer a Archibaldo y a Astra. 
+     Las moradas conquistables son el palacio de mármol y la torre de marfil.
+
+    */
+    test "Ejemplo 2.3 y 2.4 "{
     
-     rolando.cambiarCantidadDeArtefactosLimite(3)
+     rolando.cambiarCantidadDeArtefactosLimite(3) //NO FUNCIONA ESTE SETTER 
      assert.equals(3, rolando.cantidadDeArtefactosLimite())
+     rolando.recolectarArtefacto(espada)
+     rolando.recolectarArtefacto(armadura)
+     rolando.recolectarArtefacto(collar)
+     assert.equals(19, rolando.poder())
+     assert.that(rolando.puedeVencer(archibaldo))
+     assert.that(rolando.puedeVencer(astra))
+     assert.that(rolando.puedeConquistar(palacioDeMarmol))
+     assert.that(rolando.puedeConquistar(torreDeMarfil))
+     assert.that(rolando.esPoderoso())
      }
+
+
+
+    test "2.5 Posee artefacto fatal"{
+        rolando.cambiarPoderBase(15)
+        assert.equals(15, rolando.poderBase)
+        rolando.recolectarArtefacto(espada)
+        rolando.recolectarArtefacto(armadura)
+        rolando.recolectarArtefacto(collar)
+        assert.that(rolando.poseeArtefactoFatalPara(astra))
+        assert.notThat(rolando.poseeArtefactoFatalPara(caterina))
+    }
+
 }
 
 
