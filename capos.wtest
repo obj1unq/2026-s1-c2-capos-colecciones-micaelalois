@@ -1,0 +1,63 @@
+import ROLANDO2.*
+import ARTEFACTOS2.*
+import LUGARES2.*
+import ENEMIGOS2.*
+
+
+describe "Probando el tamaño de la mochila y que Rolando deje sus artefactos en el castillo"{
+    test "Rolando recolecta 2 artefactos"{
+     rolando.recolectar(espada)
+     rolando.recolectar(collar)
+     assert.equals([espada, collar], rolando.artefactosDeLaMochila)
+    }
+
+    test "Rolando quiere recolectar mas de 2 artefactos y el tamaño de su mochila no permite"{
+    rolando.recolectar(espada)
+    rolando.recolectar(collar)
+    rolando.recolectar(armadura)
+    assert.equals([espada, collar], rolando.artefactosDeLaMochila)
+
+    }
+
+    test "Rolando quiere llevar los artefactos de su mochila al castillo"{
+    rolando.recolectar(espada)
+    rolando.recolectar(collar)
+    rolando.irAUnLugar(castillo)
+    assert.equals([espada, collar], castillo.artefactos)
+
+
+    }
+}
+
+
+
+describe "Probando el poder base de Rolando"{
+    test "Rolando recolecta la espada por primera vez"{
+        rolando.recolectar(espada)
+        assert.equals(9, rolando.poderDePelea)
+    
+    }
+
+    test "Rolando recolecta la espada y el collar"{
+        rolando.recolectar(espada)
+        rolando.recolectar(collar)
+        assert.equals(12, rolando.poderDePelea)
+
+
+
+    }
+}
+
+describe "moradas conquistables"{
+    test "Rolando no es poderoso"{
+        assert.notThat(rolando.esPoderoso())
+    }
+    test "Rolando posee artefacto fatal para astra"{
+        rolando.recolectar(espada)
+        rolando.recolectar(collar)
+        assert.that(rolando.poseeElementoFatalPara(astra))
+
+    }
+}
+
+
